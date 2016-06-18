@@ -1,0 +1,17 @@
+
+<ion-navbar *navbar>
+  <button menuToggle>
+    <ion-icon name="menu"></ion-icon>
+  </button>
+  <ion-title>Hello Ionic</ion-title>
+</ion-navbar>
+
+<button outline block (click)="takePhoto()">Take a photo</button>
+
+<ion-content padding class="getting-started">
+  <ion-card *ngFor="let photo of photos">
+    <img [src]="photo.src" />
+    <button danger item-left clear (click)="deletePhoto(photo)"><ion-icon name="trash"></ion-icon>Delete this photo</button>
+    <button item-right clear (click)="likePhoto(photo)"><ion-icon name="heart"></ion-icon>{{photo.likes}}</button>
+  </ion-card>
+</ion-content>
