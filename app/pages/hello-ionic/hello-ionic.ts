@@ -16,9 +16,10 @@ export class HelloIonicPage {
     Camera.getPicture({
       destinationType: Camera.DestinationType.DATA_URL,
       targetHeight: 500,
-      targetWidth: 500
+      targetWidth: 500,
+      correctOrientation: true
     }).then((imageData) => {
-      this.photos.push(new Photo("data:image/jpges;base64," + imageData,0));
+      this.photos.push(new Photo("data:image/jpeg;base64," + imageData,0));
     }, (err) => {
       console.log(err);
     });
