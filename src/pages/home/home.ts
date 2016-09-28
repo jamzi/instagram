@@ -1,16 +1,15 @@
-import {Page} from 'ionic-angular';
+import { Component } from '@angular/core';
+import { Camera } from 'ionic-native';
 
 import { Photo } from '../photo';
 
-import { Camera } from 'ionic-native';
-
-@Page({
-  templateUrl: 'build/pages/hello-ionic/hello-ionic.html'
+@Component({
+  templateUrl: 'home.html'
 })
-export class HelloIonicPage {
+export class HomePage {
   constructor() {}
 
-  photos: Photo[] = [new Photo("http://placehold.it/350x150", 5),new Photo("http://placehold.it/350x151", 6)];
+  photos: Photo[] = [new Photo("http://placehold.it/350x150", 5), new Photo("http://placehold.it/350x151", 6)];
 
   takePhoto() {
     Camera.getPicture({
@@ -19,18 +18,18 @@ export class HelloIonicPage {
       targetWidth: 500,
       correctOrientation: true
     }).then((imageData) => {
-      this.photos.push(new Photo("data:image/jpeg;base64," + imageData,0));
+      this.photos.push(new Photo("data:image/jpeg;base64," + imageData, 0));
     }, (err) => {
       console.log(err);
     });
   }
 
-  deletePhoto(photo){
+  deletePhoto(photo) {
     this.photos.splice(this.photos.indexOf(photo), 1);
   }
 
-  likePhoto(photo){
+  likePhoto(photo) {
     photo.likes++;
   }
-  
 }
+

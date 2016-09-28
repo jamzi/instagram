@@ -1,0 +1,22 @@
+<ion-header>
+  <ion-toolbar fixed>
+    <ion-title>Instagram</ion-title>
+  </ion-toolbar>
+  <button (click)="takePhoto()" ion-button outline block>Take a photo</button>
+</ion-header>
+<ion-content>
+  <ion-card *ngFor="let photo of photos">
+    <ion-card-content>
+      <img [src]="photo.src" />
+      <button (click)="likePhoto(photo)" ion-button block>
+        <ion-icon name="heart"></ion-icon>
+        <ion-badge item-right>{{photo.likes}}</ion-badge>
+      </button>
+      
+      <button (click)="deletePhoto(photo)" ion-button color="danger" block>
+        <ion-icon name="trash"></ion-icon>
+      </button>
+    </ion-card-content>
+  </ion-card>
+</ion-content>
+
