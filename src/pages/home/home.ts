@@ -1,12 +1,13 @@
+import { Photo } from './../photo';
 import { Component } from '@angular/core';
 import { Camera } from 'ionic-native';
 
-import { Photo } from '../photo';
-
 @Component({
+  selector: 'page-home',
   templateUrl: 'home.html'
 })
 export class HomePage {
+
   constructor() {}
 
   photos: Photo[] = [new Photo("http://placehold.it/350x150", 5), new Photo("http://placehold.it/350x151", 6)];
@@ -32,4 +33,3 @@ export class HomePage {
     photo.likes++;
   }
 }
-
